@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 
 // Dynamically import the editor to avoid SSR issues
 const CollaborativeEditor = dynamic(
-  () => import('../components/CollaborativeEditor'),
+  () => import('./components/CollaborativeEditor'),
   { 
     ssr: false,
     loading: () => (

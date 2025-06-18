@@ -2,7 +2,7 @@ import dynamic from "next/dynamic"
 
 export const dynamicParams = true
 
-const Editor = dynamic(() => import("@/components/CollaborativeEditor"), { ssr: false })
+const Editor = dynamic(() => import("../components/CollaborativeEditor"), { ssr: false })
 
 export default function RoomPage({ params }: { params: { roomId: string } }) {
   const roomId = params.roomId
