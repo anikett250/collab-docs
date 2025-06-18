@@ -1,16 +1,12 @@
-import dynamic from "next/dynamic"
+"use client";
 
-export const dynamicParams = true
+import dynamic from "next/dynamic";
 
-const Editor = dynamic(() => import("../components/CollaborativeEditor"), { ssr: false })
+// Lazy-load the CollaborativeEditor component with SSR disabled
+const CollaborativeEditor = dynamic(() => import("../../components/CollaborativeEditor"), {
+  ssr: false,
+});
 
-export default function RoomPage({ params }: { params: { roomId: string } }) {
-  const roomId = params.roomId
-
-  return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold mb-4">Room: {roomId}</h1>
-      <Editor roomId={roomId} />
-    </div>
-  )
+export default function EditorWrapper({ roomId }: { roomId: string }) {
+  return <CollaborativeEditor roomId={roomId} />;
 }
