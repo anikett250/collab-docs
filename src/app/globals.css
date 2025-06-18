@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Custom styles for Quill editor */
+.ql-toolbar.ql-snow {
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.ql-container.ql-snow {
+  border: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.ql-editor {
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.ql-editor.ql-blank::before {
+  color: #9ca3af;
+  font-style: normal;
+}
+
+/* Collaborative cursor styles */
+.ql-cursor {
+  position: absolute;
+  pointer-events: none;
+}
+
+.ql-cursor-flag {
+  position: absolute;
+  top: -1.5em;
+  left: 0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  z-index: 10;
+  color: white;
+}
+
+.ql-cursor-caret {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 1.2em;
+  z-index: 10;
+}
+
+.ql-cursor-selection {
+  opacity: 0.3;
+}
+
+/* Different colors for different users */
+.ql-cursor-flag:nth-child(1) { background: #ff6b6b; }
+.ql-cursor-caret:nth-child(1) { background: #ff6b6b; }
+.ql-cursor-selection:nth-child(1) { background: #ff6b6b; }
+
+.ql-cursor-flag:nth-child(2) { background: #4ecdc4; }
+.ql-cursor-caret:nth-child(2) { background: #4ecdc4; }
+.ql-cursor-selection:nth-child(2) { background: #4ecdc4; }
+
+.ql-cursor-flag:nth-child(3) { background: #45b7d1; }
+.ql-cursor-caret:nth-child(3) { background: #45b7d1; }
+.ql-cursor-selection:nth-child(3) { background: #45b7d1; }
+
+.ql-cursor-flag:nth-child(4) { background: #f9ca24; }
+.ql-cursor-caret:nth-child(4) { background: #f9ca24; }
+.ql-cursor-selection:nth-child(4) { background: #f9ca24; }
+
+.ql-cursor-flag:nth-child(5) { background: #6c5ce7; }
+.ql-cursor-caret:nth-child(5) { background: #6c5ce7; }
+.ql-cursor-selection:nth-child(5) { background: #6c5ce7; }
+
+/* Custom scrollbar */
+.ql-editor::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ql-editor::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.ql-editor::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.ql-editor::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
